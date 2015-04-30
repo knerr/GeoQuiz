@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Folder for containing all static strings that will need to be included in this project -->
+
 <resources>
 
     <string name="app_name">GeoQuiz</string>

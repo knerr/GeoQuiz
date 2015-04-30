@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Every new activity needs at least the below information to be accessed and run-->
         <activity
             android:name=".CheatActivity"
             android:label="@string/app_name" >

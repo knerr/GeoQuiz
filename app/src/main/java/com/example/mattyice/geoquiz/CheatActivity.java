@@ -10,11 +10,13 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.content.Intent;
 
-
+//An activity must extend an activity class
 public class CheatActivity extends ActionBarActivity {
 
+    //locations to store information for values to be sent back to the called activity
     public static final String EXTRA_ANSWER_IS_TRUE = "com.example.mattyice.geoquiz.answer_is_true";
     public static final String EXTRA_ANSWER_SHOWN = "com.example.mattyice.geoquiz.answer_shown";
+    //This is for local use of information to be stored when changing activities (land to vert)
     public static final String CHEAT = "cheat";
     private boolean mAnswerIsTrue;
     private boolean mIsCheater = false;
@@ -23,15 +25,18 @@ public class CheatActivity extends ActionBarActivity {
 
     public void setAnswerShownResult(boolean isAnswerShown) {
         Intent data = new Intent();
+        //Putting info into the location where it needs to be stored
         data.putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown);
+        //setting the result to be returned to the original activity (howTheResultWent, infoBeingSentBack)
         setResult(RESULT_OK, data);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cheat);
+        setContentView(R.layout.activity_cheat); //What xml file should this be working with
 
+        //Potentially stored info
         if (savedInstanceState != null){
             mIsCheater = savedInstanceState.getBoolean(CHEAT, false);
         }
@@ -66,6 +71,7 @@ public class CheatActivity extends ActionBarActivity {
     }
 
     @Override
+    //used to keep info when the activity layout from land to verticle
     public void onSaveInstanceState (Bundle savedInstanceState){
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putBoolean(CHEAT, mIsCheater);
